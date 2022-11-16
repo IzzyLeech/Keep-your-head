@@ -1,31 +1,48 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Keep your head
 
-Welcome IzzyLeech,
+# Goal for  this Project
+Keep your head will be a hang man style game that will have a spin instead of the typical style of gallows, which will be replaced with a guillotine that will represent the player being executed if they fail to guess the correct word.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+# UX
 
-## Reminders
+## User Goals
+* Visual progress of the guillotine being built.
+* Know if they have successfully guessed the correct word.
+* Know if they have failed to guessed the correct word.
+* To know how many guesses the user has left.
+* Clear instruction as to how to play the game
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## User Stories
+* As a user, I want to know the reult of the game.
+* As a user, I want to know if a letter is repeated it counts as one input for to show the letters.
+* As a user, I want to be able to replay the game without reloading the game.
+* As a user, I want to be able to input a user name.
+* As a user, I want to know how many guesses I have remaiing.
+* As a user, I want to know the guesses that I have already inputted.
+* As a user, I want visual representation of the guillotine.
 
-## Creating the Heroku app
+## Site owners Goals
+* To ensure that input is validated to give the only option for potential guesses ie letter, no numbers.
+* For the guillotine to visual depict a guillotine being built.
+* For a list of guesses that already being inputted.
+* Give the user feedback on their performance.
+* To give clear instructing on how to play the game.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## User Requirements and Expections
 
-1. `heroku/python`
-2. `heroku/nodejs`
+### Requirements
+* To have a linear path in structure that is on a single page layout.
+* Validation on input.
+* List of guesess and remaining guesses.
+* Feedback on if the user correctly guess the word and failure to guess the word.
+* A visual guillotine
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### Expections
+* I expect to know if a wrong data input was entered. 
+* I expect to be able to input a username.
+* I expect to know if I lost my head or not.
+* I expect to know how many guesess I have left.
+* I expect to see my wrong guesses.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Design Choices
 
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
