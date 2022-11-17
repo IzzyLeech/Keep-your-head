@@ -1,8 +1,16 @@
 import random
 from nltk.corpus import words
 wordlist = words.words()
-random_word = random.choice(wordlist)
 
+guillotine = [
+    """
+
+/________________\-----------\
+|   GUILLOTINE   |-----------|
+|                            |
+|____________________________|
+    """
+]
 
 def main():
     """
@@ -21,6 +29,14 @@ def validate_username():
         if username.isalpha():
             break
         print("INVALID NAME, please try again")
+
+
+def get_game_word():
+    random_word = random.choice(wordlist)
+    while ' ' in random_word:
+        random_word = random.choice(wordlist)
+
+    return random_word
 
 
 print("Welcome to keep your head")
