@@ -146,7 +146,7 @@ def main():
         guess = player_guess()
         """player_guess will be function that gets the guess for the game"""
 
-        if guess in game_word:   
+        if guess in game_word:
             correct_letters.append(guess)
             word_corect = True
             for game_word_letter in game_word:
@@ -183,4 +183,8 @@ def validate_username():
         print("INVALID NAME, please try again")
 
 
+print(r"""
+█▄▀ █▀▀ █▀▀ █▀█   █▄█ █▀█ █░█ █▀█   █░█ █▀▀ ▄▀█ █▀▄
+█░█ ██▄ ██▄ █▀▀   ░█░ █▄█ █▄█ █▀▄   █▀█ ██▄ █▀█ █▄▀
+""")
 main()
