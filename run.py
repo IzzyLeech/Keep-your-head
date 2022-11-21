@@ -156,6 +156,11 @@ def main():
             if word_corect:
                 print("You win, the word is:", game_word)
                 break
+        else:
+            incorrect_letters.append(guess)
+            if len(incorrect_letters) == len(guillotine):
+                print("You lose your head")
+                print("The word was", game_word)
 
 
 def player_guess():
