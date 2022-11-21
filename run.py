@@ -156,6 +156,8 @@ def player_guess():
         guess = input(" ").upper()
         if not guess.isalpha():
             print("Please enter a letter")
+        elif len(guess) != 1:
+            print("PLease enter one letter")
         else:
             return guess
 
