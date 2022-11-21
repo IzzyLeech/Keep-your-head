@@ -126,11 +126,38 @@ guillotine = [
 ]
 
 
+def get_game_word():
+    game_word = random.choice(wordlist)
+    return game_word.upper()
+
+
 def main():
     """
-    Main that runs all function
+    Main that runs the game of Keep your head
     """
+    print("Welcome to keep your head")
+    incorrect_letters = []
+    correct_letters = []
+
+    while True:
+
+        guess = player_guess()
+        """player_guess will be function that gets the guess for the game"""
+
+        if guess in get_game_word():
+            correct_letters.append(guess)
+
     validate_username()
+
+
+def player_guess():
+    while True:
+        print("Guess a letter")
+        guess = input(" ").upper()
+        if not guess.isalpha():
+            print("Please enter a letter")
+        else:
+            return guess
 
 
 def validate_username():
@@ -140,18 +167,10 @@ def validate_username():
     """
     while True:
         username = input("Please enter you name:")
+        print(username)
         if username.isalpha():
             break
         print("INVALID NAME, please try again")
 
 
-def get_game_word():
-    random_word = random.choice(wordlist)
-    while ' ' in random_word:
-        random_word = random.choice(wordlist)
-
-    return random_word
-
-
-print("Welcome to keep your head")
 main()
