@@ -143,7 +143,7 @@ def main():
     game_word = get_game_word()
     while True:
 
-        guess = player_guess()
+        guess = player_guess(incorrect_letters + correct_letters)
         """player_guess will be function that gets the guess for the game"""
 
         if guess in game_word:
@@ -163,7 +163,7 @@ def main():
                 print("The word was", game_word)
 
 
-def player_guess():
+def player_guess(repeat_guess):
     while True:
         print("Guess a letter")
         guess = input(" ").upper()
@@ -171,6 +171,8 @@ def player_guess():
             print("Please enter a letter")
         elif len(guess) != 1:
             print("PLease enter one letter")
+        elif guess in repeat_guess:
+            print("You already have guessed that letter. Try again")
         else:
             return guess
 
