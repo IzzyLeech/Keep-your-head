@@ -133,11 +133,11 @@ def get_game_word():
 
 
 def main():
-    # validate_username()
     """
     Main that runs the game of Keep your head
     """
-    print("Welcome to keep your head")
+    username = validate_username()
+    print("Welcome to keep your head,", username)
     incorrect_letters = []
     correct_letters = []
     game_word = get_game_word()
@@ -184,10 +184,10 @@ def validate_username():
     """
     while True:
         username = input("Please enter you name:")
-        print(username)
         if username.isalpha():
             break
         print("INVALID NAME, please try again")
+    return username
 
 
 print(r"""
