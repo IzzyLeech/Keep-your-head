@@ -1,6 +1,6 @@
 import random
-from nltk.corpus import words
-wordlist = words.words()
+
+words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis", "marat", "pope", "coup", "class", "jury", "cake", "vote", "lyon", "king", "elite", "state", "rebel", "trial", "royal", "liberal", "france", "terror", "regime", "peasant", "clergy", "estate", "rights", "society", "private", "nobility", "church", "bishop", "throne", "palace", "nature", "feudal", "culture", "general", "prison", "democracy", "radical", "revolution", "napoleon", "jacobins", "girondins", "directory", "bastille", "freedom", "ideology", "liberty", "hercules", "elephant", "equality", "fraternity", "monarchy", "election", "robespierre", "rousseau", "governemnt", ]
 
 guillotine = [
     r"""
@@ -127,9 +127,22 @@ guillotine = [
 
 
 def get_game_word():
-    word = random.choice(wordlist)
+    word = random.choice(words)
     print(word)
     return word.upper()
+
+
+def validate_username():
+    """
+    Validates the username to ensure that it contain only letter,
+    so that numbers or whitespace can't be enter.
+    """
+    while True:
+        username = input("Please enter you name:")
+        if username.isalpha():
+            break
+        print("INVALID NAME, please try again")
+    return username
 
 
 def main():
@@ -159,8 +172,20 @@ def main():
         else:
             incorrect_letters.append(guess)
             if len(incorrect_letters) == len(guillotine):
+                build_guillotine(incorrect_letters)
                 print("You lose your head")
                 print("The word was", game_word)
+
+
+def build_guillotine(incorrect_letters):
+
+    print(guillotine[len(incorrect_letters)])
+    print()
+    print("Incorrect letters:")
+    for letter in incorrect_letters:
+        print(letter)
+    if len(incorrect_letters) == 0:
+        print("No incorrect letters")
 
 
 def player_guess(repeat_guess):
@@ -175,19 +200,7 @@ def player_guess(repeat_guess):
             print("You already have guessed that letter. Try again")
         else:
             return guess
-
-
-def validate_username():
-    """
-    Validates the username to ensure that it contain only letter,
-    so that numbers or whitespace can't be enter.
-    """
-    while True:
-        username = input("Please enter you name:")
-        if username.isalpha():
-            break
-        print("INVALID NAME, please try again")
-    return username
+        break
 
 
 print(r"""
