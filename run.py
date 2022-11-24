@@ -4,7 +4,6 @@ words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis", "marat",
 
 guillotine = [
     r"""
-
 /________________\-----------|
 |   GUILLOTINE   |-----------|
 |                            |
@@ -200,7 +199,6 @@ def player_guess(repeat_guess):
             print("You already have guessed that letter. Try again")
         else:
             return guess
-        break
 
 
 print(r"""
