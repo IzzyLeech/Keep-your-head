@@ -144,6 +144,13 @@ def validate_username():
     return username
 
 
+def get_difficulty():
+    print("Pick a difficulty")
+    print("E for easy, M for medium and H for hard")
+    difficulty = input(" Please Enter Difficulty")
+    return difficulty
+
+
 def main():
     """
     Main that runs the game of Keep your head
