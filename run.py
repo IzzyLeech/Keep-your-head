@@ -154,7 +154,7 @@ def main():
     correct_letters = []
     game_word = get_game_word()
     while True:
-
+        build_guillotine(incorrect_letters, correct_letters, game_word)
         guess = player_guess(incorrect_letters + correct_letters)
         """player_guess will be function that gets the guess for the game"""
 
@@ -170,27 +170,38 @@ def main():
                 break
         else:
             incorrect_letters.append(guess)
-            if len(incorrect_letters) == len(guillotine):
-                build_guillotine(incorrect_letters)
+            if len(incorrect_letters) == len(guillotine) - 1:
+                build_guillotine(incorrect_letters, correct_letters, game_word)
                 print("You lose your head")
                 print("The word was", game_word)
 
 
-def build_guillotine(incorrect_letters):
+def build_guillotine(incorrect_letters, correct_letters, game_word):
 
     print(guillotine[len(incorrect_letters)])
     print()
+
     print("Incorrect letters:")
     for letter in incorrect_letters:
         print(letter)
     if len(incorrect_letters) == 0:
         print("No incorrect letters")
 
+    game_word = get_game_word()
+
+    empty_spaces = ["_"] * len(game_word)
+
+    for i in range(len(game_word)):
+        if game_word[i] in correct_letters:
+            empty_spaces[i] = game_word[i]
+
+    print("".join(empty_spaces))
+
 
 def player_guess(repeat_guess):
     while True:
         print("Guess a letter")
-        guess = input(" ").upper()
+        guess = input("> ").upper()
         if not guess.isalpha():
             print("Please enter a letter")
         elif len(guess) != 1:
