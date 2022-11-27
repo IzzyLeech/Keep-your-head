@@ -203,8 +203,6 @@ def build_guillotine(incorrect_letters, correct_letters, game_word):
     if len(incorrect_letters) == 0:
         print("No incorrect letters")
 
-    game_word = get_game_word()
-
     empty_spaces = ["_"] * len(game_word)
 
     for i in range(len(game_word)):
