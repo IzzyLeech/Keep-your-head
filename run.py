@@ -148,6 +148,15 @@ def get_difficulty():
     print("Pick a difficulty")
     print("E for easy, M for medium and H for hard")
     difficulty = input(" Please Enter Difficulty")
+    return difficulty.upper()
+
+
+def validate_difficulty():
+    difficulty = get_difficulty()
+
+    while difficulty not in ('E', 'M', 'H'):
+        print('Please choose E, M or H')
+
     return difficulty
 
 
