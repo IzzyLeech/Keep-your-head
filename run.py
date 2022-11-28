@@ -156,8 +156,12 @@ def validate_difficulty():
 
     while difficulty not in ('E', 'M', 'H'):
         print('Please choose E, M or H')
+        difficulty = get_difficulty()
 
     return difficulty
+
+get_difficulty()
+validate_difficulty()
 
 
 def main():
