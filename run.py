@@ -160,6 +160,21 @@ def validate_difficulty():
 
     return difficulty
 
+
+def difficulty_word():
+    game_word = get_game_word()
+    difficulty = validate_difficulty()
+    if difficulty == "H":
+        game_word = game_word['hard']
+    elif difficulty == "M":
+        game_word = game_word['medium']
+    elif difficulty == 'E':
+        game_word = game_word['easy']
+
+
+
+
+
 get_difficulty()
 validate_difficulty()
 
