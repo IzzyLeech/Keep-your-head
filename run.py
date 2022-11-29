@@ -128,7 +128,16 @@ guillotine = [
 def get_game_word():
     word = random.choice(words)
     print(word)
-    return word.upper()
+
+    if len(word) >= 7:
+        print("hard")
+    elif len(word) <= 7:
+        print("medium")
+    elif len(word) <= 5:
+        print("easy")
+
+
+get_game_word()
 
 
 def validate_username():
@@ -165,11 +174,11 @@ def difficulty_word():
     game_word = get_game_word()
     difficulty = validate_difficulty()
     if difficulty == "H":
-        game_word == [word for word in words if len(word) >= 7]
+        [word for word in words if len(word) >= 7]
     elif difficulty == "M":
-        game_word == [word for word in words if len(word) <= 7]
+        [word for word in words if len(word) <= 7]
     elif difficulty == "E":
-        game_word == [word for word in words if len(word) <= 5]
+        [word for word in words if len(word) <= 5]
     return game_word
 
 
