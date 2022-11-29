@@ -147,7 +147,7 @@ def validate_username():
 def get_difficulty():
     print("Pick a difficulty")
     print("E for easy, M for medium and H for hard")
-    difficulty = input(" Please Enter Difficulty")
+    difficulty = input(" Please Enter Difficulty:")
     return difficulty.upper()
 
 
@@ -165,18 +165,17 @@ def difficulty_word():
     game_word = get_game_word()
     difficulty = validate_difficulty()
     if difficulty == "H":
-        game_word = game_word['hard']
+        game_word == [word for word in words if len(word) >= 7]
     elif difficulty == "M":
-        game_word = game_word['medium']
-    elif difficulty == 'E':
-        game_word = game_word['easy']
-
-
-
+        game_word == [word for word in words if len(word) <= 7]
+    elif difficulty == "E":
+        game_word == [word for word in words if len(word) <= 5]
+    return game_word
 
 
 get_difficulty()
 validate_difficulty()
+difficulty_word()
 
 
 def main():
@@ -209,19 +208,19 @@ def main():
                 build_guillotine(incorrect_letters, correct_letters, game_word)
                 print("You lose your head")
                 print("The word was", game_word)
+                break
 
 
 def build_guillotine(incorrect_letters, correct_letters, game_word):
 
     print(guillotine[len(incorrect_letters)])
     print()
-
-    print("Incorrect letters:")
+    print("Incorrect letters:", end='')
     for letter in incorrect_letters:
-        print(letter)
+        print(letter, end='')
     if len(incorrect_letters) == 0:
         print("No incorrect letters")
-
+    print()
     empty_spaces = ["_"] * len(game_word)
 
     for i in range(len(game_word)):
