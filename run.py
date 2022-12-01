@@ -1,6 +1,10 @@
 import random
 
-words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis", "marat", "pope", "coup", "class", "jury", "cake", "vote", "lyon", "king", "elite", "state", "rebel", "trial", "royal", "liberal", "france", "terror", "regime", "peasant", "clergy", "estate", "rights", "society", "private", "nobility", "church", "bishop", "throne", "palace", "nature", "feudal", "culture", "general", "prison", "democracy", "radical", "revolution", "napoleon", "jacobins", "girondins", "directory", "bastille", "freedom", "ideology", "liberty", "hercules", "elephant", "equality", "fraternity", "monarchy", "election", "robespierre", "rousseau", "governemnt", ]
+easy_words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis", "marat", "pope", "coup", "class", "jury", "cake", "vote", "lyon", "king", "elite", "state", "rebel", "trial", "royal", ]
+
+medium_words = ["liberal", "france", "terror", "regime", "peasant", "clergy", "estate", "rights", "society", "private", "nobility", "church", "bishop", "throne", "palace", "nature", "feudal", "culture", "general", "prison", ]
+
+hard_words = ["ideology", "liberty", "hercules", "elephant", "equality", "fraternity", "monarchy", "election", "robespierre", "rousseau", "governemnt", "democracy", "radical", "revolution", "napoleon", "jacobins", "girondins", "directory", "bastille", "freedom", ]
 
 guillotine = [
     r"""
@@ -125,21 +129,6 @@ guillotine = [
 ]
 
 
-def get_game_word():
-    word = random.choice(words)
-    print(word)
-
-    if len(word) >= 7:
-        print("hard")
-    elif len(word) <= 7:
-        print("medium")
-    elif len(word) <= 5:
-        print("easy")
-
-
-get_game_word()
-
-
 def validate_username():
     """
     Validates the username to ensure that it contain only letter,
@@ -170,21 +159,16 @@ def validate_difficulty():
     return difficulty
 
 
-def difficulty_word():
-    game_word = get_game_word()
+def get_difficulty_word():
     difficulty = validate_difficulty()
     if difficulty == "H":
-        [word for word in words if len(word) >= 7]
+        game_word = random.choice(hard_words)
     elif difficulty == "M":
-        [word for word in words if len(word) <= 7]
+        game_word = random.choice(medium_words)
     elif difficulty == "E":
-        [word for word in words if len(word) <= 5]
+        game_word = random.choice(easy_words)
+    print(game_word)
     return game_word
-
-
-get_difficulty()
-validate_difficulty()
-difficulty_word()
 
 
 def main():
@@ -195,7 +179,7 @@ def main():
     print("Welcome to keep your head,", username)
     incorrect_letters = []
     correct_letters = []
-    game_word = get_game_word()
+    game_word = get_difficulty_word()
     while True:
         build_guillotine(incorrect_letters, correct_letters, game_word)
         guess = player_guess(incorrect_letters + correct_letters)
@@ -221,7 +205,6 @@ def main():
 
 
 def build_guillotine(incorrect_letters, correct_letters, game_word):
-
     print(guillotine[len(incorrect_letters)])
     print()
     print("Incorrect letters:", end='')
