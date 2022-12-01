@@ -1,5 +1,7 @@
 import random
 
+import sys
+
 easy_words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis", "marat", "pope", "coup", "class", "jury", "cake", "vote", "lyon", "king", "elite", "state", "rebel", "trial", "royal", ]
 
 medium_words = ["liberal", "france", "terror", "regime", "peasant", "clergy", "estate", "rights", "society", "private", "nobility", "church", "bishop", "throne", "palace", "nature", "feudal", "culture", "general", "prison", ]
@@ -193,15 +195,15 @@ def main():
                     word_corect = False
                     break
             if word_corect:
-                print("You win, the word is:", game_word)
-                break
+                print("You win" + username + " ,the word is:", game_word)
+                play_again()
         else:
             incorrect_letters.append(guess)
             if len(incorrect_letters) == len(guillotine) - 1:
                 build_guillotine(incorrect_letters, correct_letters, game_word)
-                print("You lose your head")
+                print("You lose your head", username)
                 print("The word was", game_word)
-                break
+                play_again()
 
 
 def build_guillotine(incorrect_letters, correct_letters, game_word):
@@ -234,6 +236,17 @@ def player_guess(repeat_guess):
             print("You already have guessed that letter. Try again")
         else:
             return guess
+
+
+def play_again():
+    username = validate_username()
+    again = input("Would you like to play again" + username + "? Type Y or N")
+    if again == "y":
+        print("Let's go")
+        get_difficulty()
+    else:
+        print("No problem, Thanks for Playing")
+        sys.exit()
 
 
 print(r"""
