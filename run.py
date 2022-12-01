@@ -168,7 +168,7 @@ def get_difficulty_word():
     elif difficulty == "E":
         game_word = random.choice(easy_words)
     print(game_word)
-    return game_word
+    return game_word.upper()
 
 
 def main():
