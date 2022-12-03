@@ -173,7 +173,7 @@ def get_difficulty_word():
     return game_word.upper()
 
 
-def main():
+def game():
     """
     Main that runs the game of Keep your head
     """
@@ -197,6 +197,7 @@ def main():
             if word_corect:
                 print("You win" + username + " ,the word is:", game_word)
                 play_again()
+                break
         else:
             incorrect_letters.append(guess)
             if len(incorrect_letters) == len(guillotine) - 1:
@@ -204,6 +205,7 @@ def main():
                 print("You lose your head", username)
                 print("The word was", game_word)
                 play_again()
+                break
 
 
 def build_guillotine(incorrect_letters, correct_letters, game_word):
@@ -243,14 +245,18 @@ def play_again():
     again = input("Would you like to play again" + username + "? Type Y or N")
     if again == "y":
         print("Let's go")
-        get_difficulty()
+        game()
     else:
         print("No problem, Thanks for Playing")
         sys.exit()
 
 
+def main():
+    game()
+
+
+main()
 print(r"""
 █▄▀ █▀▀ █▀▀ █▀█   █▄█ █▀█ █░█ █▀█   █░█ █▀▀ ▄▀█ █▀▄
 █░█ ██▄ ██▄ █▀▀   ░█░ █▄█ █▄█ █▀▄   █▀█ ██▄ █▀█ █▄▀
 """)
-main()
