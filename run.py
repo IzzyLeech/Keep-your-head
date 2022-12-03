@@ -205,7 +205,7 @@ def game():
                     break
             if word_corect:
                 print("You win" + username + " ,the word is:", game_word)
-                play_again()
+                play_again(username)
                 break
         else:
             incorrect_letters.append(guess)
@@ -213,7 +213,7 @@ def game():
                 build_guillotine(incorrect_letters, correct_letters, game_word)
                 print("You lose your head", username)
                 print("The word was", game_word)
-                play_again()
+                play_again(username)
                 break
 
 
@@ -249,8 +249,7 @@ def player_guess(repeat_guess):
             return guess
 
 
-def play_again():
-    username = validate_username()
+def play_again(username):
     again = input("Would you like to play again" + username + "? Type Y or N")
     if again == "y":
         print("Let's go")
@@ -264,8 +263,8 @@ def main():
     game()
 
 
-main()
 print(r"""
 █▄▀ █▀▀ █▀▀ █▀█   █▄█ █▀█ █░█ █▀█   █░█ █▀▀ ▄▀█ █▀▄
 █░█ ██▄ ██▄ █▀▀   ░█░ █▄█ █▄█ █▀▄   █▀█ ██▄ █▀█ █▄▀
 """)
+main()
