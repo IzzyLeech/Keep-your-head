@@ -1,21 +1,52 @@
 import random
 
+import requests
+
 import sys
 
-easy_words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis",
-              "marat", "pope", "coup", "class", "jury", "cake", "vote",
-              "lyon", "king", "elite", "state", "rebel", "trial", "royal", ]
 
-medium_words = ["liberal", "france", "terror", "regime", "peasant", "clergy",
+e_words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis",
+           "marat", "pope", "coup", "class", "jury", "cake", "vote",
+           "lyon", "king", "elite", "state", "rebel", "trial", "royal", ]
+
+m_words = ["liberal", "france", "terror", "regime", "peasant", "clergy",
                 "estate", "rights", "society", "private", "nobility", "church",
                 "bishop", "throne", "palace", "nature", "feudal", "culture",
                 "general", "prison", ]
 
-hard_words = ["ideology", "liberty", "hercules", "elephant", "equality",
+h_words = ["ideology", "liberty", "hercules", "elephant", "equality",
               "fraternity", "monarchy", "election", "robespierre",
               "rousseau", "governemnt", "democracy", "radical",
               "revolution", "napoleon", "jacobins", "girondins",
               "directory", "bastille", "freedom", ]
+
+
+def get_easy_words():
+
+    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=4")
+
+    easy_words = req.text
+
+    return easy_words
+
+
+def get_medium_words():
+
+    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=6")
+
+    medium_words = req.text
+
+    return medium_words
+
+
+def get_hard_words():
+
+    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=8")
+
+    hard_words = req.text
+
+    return hard_words
+
 
 guillotine = [
     r"""
@@ -177,7 +208,7 @@ def get_difficulty_word():
     elif difficulty == "M":
         game_word = random.choice(medium_words)
     elif difficulty == "E":
-        game_word = random.choice(easy_words)
+        game_word = random.choice(get_easy_words())
     print(game_word)
     return game_word.upper()
 
