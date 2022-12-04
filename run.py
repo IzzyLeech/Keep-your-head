@@ -48,6 +48,21 @@ def get_hard_words():
     return hard_words
 
 
+def format_word(string):
+
+    current_word = ""
+    new_list = []
+
+    for letter in string:
+        if letter.isalpha():
+            current_word += letter
+        elif letter == "," or letter == "]":
+            new_list.append(current_word)
+            current_word = ""
+
+    return new_list
+
+
 guillotine = [
     r"""
 /________________\-----------|
@@ -204,11 +219,15 @@ def validate_difficulty():
 def get_difficulty_word():
     difficulty = validate_difficulty()
     if difficulty == "H":
-        game_word = random.choice(hard_words)
+        words = random.choice(get_hard_words())
+        game_word = random.choice(words)
     elif difficulty == "M":
-        game_word = random.choice(medium_words)
+        words = random.choice(get_medium_words())
+        game_word = random.choice(words)
     elif difficulty == "E":
-        game_word = random.choice(get_easy_words())
+        words = format_word(get_easy_words())
+        game_word = random.choice(words)
+
     print(game_word)
     return game_word.upper()
 
@@ -235,7 +254,7 @@ def game():
                     word_corect = False
                     break
             if word_corect:
-                print("You win" + username + " ,the word is:", game_word)
+                print("You win " + username + " ,the word is:", game_word)
                 play_again(username)
                 break
         else:
