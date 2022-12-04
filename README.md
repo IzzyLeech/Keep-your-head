@@ -46,6 +46,24 @@ Keep your head will be a hang man style game that will have a spin instead of th
 
 ## Design Choices
 
+# Technologies Used
+
+## Languages
+
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript "JS") was built into the template supplied by Code Institute
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language) "Python") for the game code
+* [Markdown](https://en.wikipedia.org/wiki/Markdown) for the content in my README file
+
+## Modules
+
+* For selcting a random word from my list variables [Random](https://www.geeksforgeeks.org/python-random-module/)
+* To give the user the option to close the program [SYS](https://www.geeksforgeeks.org/python-sys-module/)
+
+## Tools
+
+
+
+
 # Deployment
 
 The site was deployed via Heroku. Here is the link 
