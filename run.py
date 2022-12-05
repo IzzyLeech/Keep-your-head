@@ -219,10 +219,10 @@ def validate_difficulty():
 def get_difficulty_word():
     difficulty = validate_difficulty()
     if difficulty == "H":
-        words = random.choice(get_hard_words())
+        words = format_word(get_hard_words())
         game_word = random.choice(words)
     elif difficulty == "M":
-        words = random.choice(get_medium_words())
+        words = format_word(get_medium_words())
         game_word = random.choice(words)
     elif difficulty == "E":
         words = format_word(get_easy_words())
@@ -268,11 +268,13 @@ def game():
 
 
 def build_guillotine(incorrect_letters, correct_letters, game_word):
+    lives = 6
     print(guillotine[len(incorrect_letters)])
     print()
     print("Incorrect letters:", end='')
     for letter in incorrect_letters:
         print(letter, end='')
+        lives = lives - 1
     if len(incorrect_letters) == 0:
         print("No incorrect letters")
     print()
@@ -282,6 +284,7 @@ def build_guillotine(incorrect_letters, correct_letters, game_word):
         if game_word[i] in correct_letters:
             empty_spaces[i] = game_word[i]
 
+    print("Number of lives:", lives)
     print("".join(empty_spaces))
 
 
