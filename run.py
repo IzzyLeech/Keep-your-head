@@ -337,7 +337,7 @@ def game():
 
 
 def build_guillotine(incorrect_letters, correct_letters, game_word):
-    lives = 6
+    lives = 7
     print(guillotine[len(incorrect_letters)])
     print()
     print("Incorrect letters:", end='')
