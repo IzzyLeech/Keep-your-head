@@ -44,6 +44,18 @@ Keep your head will be a hang man style game that will have a spin instead of th
 * I expect to know how many guesess I have left.
 * I expect to see my wrong guesses.
 
+## How to PLay
+
+* Keep Your Head is a guessing game that the player will have to guess the word that the game generates for them, resembling a hangman game with the exception of the gallows being a guillotine.
+* The player will be given the choice to choose the length of the word based on the difficulty they choose.
+    * Easy for a four letter word
+    * Medium for a six letter word
+    * Hard for a eight letter word
+* Once the game starts, the player will be shown the base of the guillotine to show that game has started. The guillotine will be built upwards from the base given the player the chance to give seven incorrect letters before they lose their head, resulting in game over.
+* The player will have 7 lives and it will be shown by a counter on how many the player has left.
+* The player will win the game if they correctly guess the letter of the word.
+* The player will lose the game if they run out of lives. 
+
 ## Design Choices
 
 # Technologies Used
