@@ -51,8 +51,8 @@ Keep your head will be a hang man style game that will have a spin instead of th
     * Easy for a four letter word
     * Medium for a six letter word
     * Hard for a eight letter word
-* Once the game starts, the player will be shown the base of the guillotine to show that game has started. The guillotine will be built upwards from the base given the player the chance to give six incorrect letters before they lose their head, resulting in game over.
-* The player will have 6 lives and it will be shown by a counter on how many the player has left.
+* Once the game starts, the player will be shown the base of the guillotine to show that game has started. The guillotine will be built upwards from the base given the player the chance to give seven incorrect letters before they lose their head, resulting in game over.
+* The player will have 7 lives and it will be shown by a counter on how many the player has left.
 * The player will win the game if they correctly guess the letter of the word.
 * The player will lose the game if they run out of lives. 
 
@@ -70,6 +70,7 @@ Keep your head will be a hang man style game that will have a spin instead of th
 
 * For selcting a random word from my list variables [Random](https://www.geeksforgeeks.org/python-random-module/)
 * To give the user the option to close the program [SYS](https://www.geeksforgeeks.org/python-sys-module/)
+* To pull the requested Api for the words used in the game [Requests](https://www.w3schools.com/python/module_requests.asp)
 
 ## Tools
 
