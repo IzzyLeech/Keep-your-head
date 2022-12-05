@@ -1,8 +1,8 @@
 import random
 
-import requests
-
 import sys
+
+import requests
 
 
 e_words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis",
@@ -22,8 +22,10 @@ h_words = ["ideology", "liberty", "hercules", "elephant", "equality",
 
 
 def get_easy_words():
-
-    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=4")
+    """
+    Gets 10 random words that are 4 letter long from API
+    """
+    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=4", timeout=10)
 
     easy_words = req.text
 
@@ -31,8 +33,10 @@ def get_easy_words():
 
 
 def get_medium_words():
-
-    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=6")
+    """
+    Gets 10 random words that are 6 letter long from API
+    """
+    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=6", timeout=10)
 
     medium_words = req.text
 
@@ -40,8 +44,10 @@ def get_medium_words():
 
 
 def get_hard_words():
-
-    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=8")
+    """
+    Gets 10 random words that are 8 letter long from API
+    """
+    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=8", timeout=10)
 
     hard_words = req.text
 
@@ -49,7 +55,9 @@ def get_hard_words():
 
 
 def format_word(string):
-
+    """
+    Formats the API into a list, that removes "," "[" and "]"
+    """
     current_word = ""
     new_list = []
 
@@ -269,6 +277,9 @@ def validate_username():
 
 
 def get_difficulty():
+    """
+    Input field for the player to choose the difficluty of word for game.
+    """
     print("Pick a difficulty")
     print("E for easy, M for medium and H for hard")
     difficulty = input(" Please Enter Difficulty:")
@@ -276,6 +287,9 @@ def get_difficulty():
 
 
 def validate_difficulty():
+    """
+    Validates the difficulty input for correct value
+    """
     difficulty = get_difficulty()
 
     while difficulty not in ('E', 'M', 'H'):
@@ -286,6 +300,10 @@ def validate_difficulty():
 
 
 def get_difficulty_word():
+    """
+    Returns the word that will be played based on the difficulty
+    that has been selected
+    """
     difficulty = validate_difficulty()
     if difficulty == "H":
         words = format_word(get_hard_words())
