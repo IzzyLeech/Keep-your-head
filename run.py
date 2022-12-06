@@ -339,8 +339,6 @@ def game():
     while True:
         build_guillotine(incorrect_letters, correct_letters, game_word)
         guess = player_guess(incorrect_letters + correct_letters, username)
-        """player_guess will be function that gets the guess for the game"""
-
         if guess in game_word:
             correct_letters.append(guess)
             word_corect = True
