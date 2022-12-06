@@ -62,6 +62,17 @@ Keep your head will be a hang man style game that will have a spin instead of th
 
 The images I used in my project were primarily text art. I accquired the Guillotine art from [ASCII Art Archive](https://www.asciiart.eu/weapons/guillotines "ASCII Art Archive") and edited the art down so it would build to its final form through 7 different incarnations of the build.  The reason I choose to use a guillotine was to keep with the theme of the French Revolution that will be linked to the words in the words.py file. I also used [fsymbols](https://fsymbols.com/generators/carty/) to generate a header for the name of the game Keep Your Head. The generated art that I choose was one that I felt was proportion to the size of that app where it wasn't overcasting the focus of the visual elements of the game and was easily readable. 
 
+### Structure
+The structure of the project was mapped out using [Lucid](https://www.lucidchart.com/pages/ "Lucid")
+
+Flowchart for the logic to start the game.
+
+![Start the game logic](images/start-logic.png)
+
+Flowchart for the logic to play the game.
+
+![Play the game logic](images/game-logic.png)
+
 # Technologies Used
 
 ## Languages
