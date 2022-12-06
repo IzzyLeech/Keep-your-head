@@ -4,21 +4,11 @@ import sys
 
 import requests
 
+from words import e_words
 
-e_words = ["ideas", "paris", "civil", "monks", "reign", "guild", "louis",
-           "marat", "pope", "coup", "class", "jury", "cake", "vote",
-           "lyon", "king", "elite", "state", "rebel", "trial", "royal", ]
+from words import m_words
 
-m_words = ["liberal", "france", "terror", "regime", "peasant", "clergy",
-           "estate", "rights", "society", "private", "nobility", "church",
-           "bishop", "throne", "palace", "nature", "feudal", "culture",
-           "general", "prison", ]
-
-h_words = ["ideology", "liberty", "hercules", "elephant", "equality",
-           "fraternity", "monarchy", "election", "robespierre",
-           "rousseau", "governemnt", "democracy", "radical",
-           "revolution", "napoleon", "jacobins", "girondins",
-           "directory", "bastille", "freedom", ]
+from words import h_words
 
 
 def get_easy_words():
@@ -263,10 +253,10 @@ def validate_difficulty():
     return difficulty
 
 
-def get_difficulty_word():
+def get_difficulty_word_api():
     """
     Returns the word that will be played based on the difficulty
-    that has been selected
+    that has been selected from the API
     """
     difficulty = validate_difficulty()
     if difficulty == "H":
@@ -283,6 +273,46 @@ def get_difficulty_word():
     return game_word.upper()
 
 
+def get_difficulty_word_py():
+    """
+    Returns the word that will be played based on the difficulty
+    that has been selected from the words.py file
+    """
+    difficulty = validate_difficulty()
+    if difficulty == "H":
+        game_word = random.choice(h_words)
+    elif difficulty == "M":
+        game_word = random.choice(m_words)
+    elif difficulty == "E":
+        game_word = random.choice(e_words)
+
+    print(game_word)
+    return game_word.upper()
+
+
+def check_if_api_is_active():
+    """
+    Check if the API is active by checking error
+    code, if the api is down it will run words from the
+    words.py file
+    """
+    req_easy = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=4", timeout=10)
+
+    req_medium = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=6", timeout=10)
+
+    req_hard = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=8", timeout=10)
+
+    if req_easy.status_code == 503:
+        game_word = get_difficulty_word_py()
+        if req_medium.status_code == 503:
+            game_word = get_difficulty_word_py()
+            if req_hard.status_code == 503:
+                game_word = get_difficulty_word_py()
+    else:
+        game_word = get_difficulty_word_api()
+    return game_word
+
+
 def game():
     """
     Main that runs the game of Keep your head
@@ -291,7 +321,7 @@ def game():
     print("Welcome to keep your head,", username)
     incorrect_letters = []
     correct_letters = []
-    game_word = get_difficulty_word()
+    game_word = check_if_api_is_active()
     while True:
         build_guillotine(incorrect_letters, correct_letters, game_word)
         guess = player_guess(incorrect_letters + correct_letters)
