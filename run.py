@@ -356,13 +356,19 @@ def game():
             incorrect_letters.append(guess)
             if len(incorrect_letters) == len(guillotine) - 1:
                 build_guillotine(incorrect_letters, correct_letters, game_word)
-                print("You lose your head", username)
+                print("You lose your head ", username)
                 print("The word was", game_word)
                 play_again(username)
                 break
 
 
 def build_guillotine(incorrect_letters, correct_letters, game_word):
+    """
+    Will print the different parts of the guillotine for incorrect guess,
+    will print the incorrect letters, will print the empty spaces of the word,
+    will print the correct guess in the empty spaces and will decrease the
+    lives counter for incorrect guesses.
+    """
     lives = 7
     print(guillotine[len(incorrect_letters)])
     print("Incorrect letters:", end='')
@@ -383,6 +389,11 @@ def build_guillotine(incorrect_letters, correct_letters, game_word):
 
 
 def player_guess(repeat_guess, username):
+    """
+    Will allow the user to input the guess for the game word
+    Will make sure that one guess has been entered, no repeat guess and
+    invalid guesses, then will return the guess.
+    """
     while True:
         print("Guess a letter", username)
         guess = input("> ").upper()
@@ -397,6 +408,10 @@ def player_guess(repeat_guess, username):
 
 
 def play_again(username):
+    """
+    Gives the user the option to play the game again or
+    close the program
+    """
     again = input("Would you like to play again" + username + "? Type Y or N")
     if again == "y":
         print("Let's go")
@@ -407,6 +422,9 @@ def play_again(username):
 
 
 def main():
+    """
+    Main function that runs the program
+    """
     game()
 
 
