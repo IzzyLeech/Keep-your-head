@@ -15,7 +15,9 @@ def get_easy_words():
     """
     Gets 10 random words that are 4 letter long from API
     """
-    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=4", timeout=10)
+    req = requests.get(
+        "https://random-word-api.herokuapp.com/word?number=10&length=4",
+        timeout=10)
 
     easy_words = req.text
 
@@ -26,7 +28,9 @@ def get_medium_words():
     """
     Gets 10 random words that are 6 letter long from API
     """
-    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=6", timeout=10)
+    req = requests.get(
+        "https://random-word-api.herokuapp.com/word?number=10&length=6",
+        timeout=10)
 
     medium_words = req.text
 
@@ -37,7 +41,9 @@ def get_hard_words():
     """
     Gets 10 random words that are 8 letter long from API
     """
-    req = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=8", timeout=10)
+    req = requests.get(
+        "https://random-word-api.herokuapp.com/word?number=10&length=8",
+        timeout=10)
 
     hard_words = req.text
 
@@ -227,38 +233,38 @@ def validate_username():
         if username.isalpha():
             break
         print("INVALID NAME, please try again")
-    return username
+    return username.upper()
 
 
-def get_difficulty():
+def get_difficulty(username):
     """
     Input field for the player to choose the difficluty of word for game.
     """
-    print("Pick a difficulty")
+    print("PLease pick a difficulty", username)
     print("E for easy, M for medium and H for hard")
     difficulty = input(" Please Enter Difficulty:")
     return difficulty.upper()
 
 
-def validate_difficulty():
+def validate_difficulty(username):
     """
     Validates the difficulty input for correct value
     """
-    difficulty = get_difficulty()
+    difficulty = get_difficulty(username)
 
     while difficulty not in ('E', 'M', 'H'):
-        print('Please choose E, M or H')
-        difficulty = get_difficulty()
+        print('Please choose E, M or H', username)
+        difficulty = get_difficulty(username)
 
     return difficulty
 
 
-def get_difficulty_word_api():
+def get_difficulty_word_api(username):
     """
     Returns the word that will be played based on the difficulty
     that has been selected from the API
     """
-    difficulty = validate_difficulty()
+    difficulty = validate_difficulty(username)
     if difficulty == "H":
         words = format_word(get_hard_words())
         game_word = random.choice(words)
@@ -273,12 +279,12 @@ def get_difficulty_word_api():
     return game_word.upper()
 
 
-def get_difficulty_word_py():
+def get_difficulty_word_py(username):
     """
     Returns the word that will be played based on the difficulty
     that has been selected from the words.py file
     """
-    difficulty = validate_difficulty()
+    difficulty = validate_difficulty(username)
     if difficulty == "H":
         game_word = random.choice(h_words)
     elif difficulty == "M":
@@ -290,26 +296,32 @@ def get_difficulty_word_py():
     return game_word.upper()
 
 
-def check_if_api_is_active():
+def check_if_api_is_active(username):
     """
     Check if the API is active by checking error
     code, if the api is down it will run words from the
     words.py file
     """
-    req_easy = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=4", timeout=10)
+    req_easy = requests.get(
+        "https://random-word-api.herokuapp.com/word?number=10&length=4",
+        timeout=10)
 
-    req_medium = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=6", timeout=10)
+    req_medium = requests.get(
+        "https://random-word-api.herokuapp.com/word?number=10&length=6",
+        timeout=10)
 
-    req_hard = requests.get("https://random-word-api.herokuapp.com/word?number=10&length=8", timeout=10)
+    req_hard = requests.get(
+        "https://random-word-api.herokuapp.com/word?number=10&length=8",
+        timeout=10)
 
     if req_easy.status_code == 503:
-        game_word = get_difficulty_word_py()
+        game_word = get_difficulty_word_py(username)
         if req_medium.status_code == 503:
-            game_word = get_difficulty_word_py()
+            game_word = get_difficulty_word_py(username)
             if req_hard.status_code == 503:
-                game_word = get_difficulty_word_py()
+                game_word = get_difficulty_word_py(username)
     else:
-        game_word = get_difficulty_word_api()
+        game_word = get_difficulty_word_api(username)
     return game_word
 
 
@@ -318,13 +330,15 @@ def game():
     Main that runs the game of Keep your head
     """
     username = validate_username()
-    print("Welcome to keep your head,", username)
+    print("Welcome to Keep Your Head,", username)
+    print("A guessing game where you must find the letter's of a word")
+    print("Or you will lose your head if you guess wrong 7 times")
     incorrect_letters = []
     correct_letters = []
-    game_word = check_if_api_is_active()
+    game_word = check_if_api_is_active(username)
     while True:
         build_guillotine(incorrect_letters, correct_letters, game_word)
-        guess = player_guess(incorrect_letters + correct_letters)
+        guess = player_guess(incorrect_letters + correct_letters, username)
         """player_guess will be function that gets the guess for the game"""
 
         if guess in game_word:
@@ -368,14 +382,14 @@ def build_guillotine(incorrect_letters, correct_letters, game_word):
     print("".join(empty_spaces))
 
 
-def player_guess(repeat_guess):
+def player_guess(repeat_guess, username):
     while True:
-        print("Guess a letter")
+        print("Guess a letter", username)
         guess = input("> ").upper()
         if not guess.isalpha():
-            print("Please enter a letter")
+            print("Please enter a letter", username)
         elif len(guess) != 1:
-            print("PLease enter one letter")
+            print("PLease enter one letter", username)
         elif guess in repeat_guess:
             print("You already have guessed that letter. Try again")
         else:
