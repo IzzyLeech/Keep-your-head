@@ -410,7 +410,15 @@ def play_again(username):
     Gives the user the option to play the game again or
     close the program
     """
-    again = input("Would you like to play again" + username + "? Type Y or N")
+    again = input(
+        "Would you like to play again" + username +
+        "? Type Y, play again or N to close program").upper()
+    while again not in ("Y", "N"):
+        print("PLease choose y or n", username)
+        again = input(
+            "Would you like to play again" + username +
+            "? Type Y to play again or N to close program")
+
     if again == "y":
         print("Let's go")
         game()

@@ -95,6 +95,7 @@ Flowchart for the logic to play the game.
 * For the word API [Random word API](https://random-word-api.herokuapp.com/home "Random Word API")
 * For the guillotine art [ASCII Art Archive](https://www.asciiart.eu/weapons/guillotines "ASCII Art Archive")
 * For the heading art of Keep Your head[fsymbols](https://fsymbols.com/generators/carty/ "fsymbols")
+* For creating flowchart for logic of project [Lucid](https://www.lucidchart.com/pages/ "Lucid")
 
 # Testing
 
@@ -102,7 +103,21 @@ From testing the game throughout the build process there were many changes that 
 
 Another change that was made from testing was I had to change the sizing of the guillotine pictures due to the top of the guillotine being cut off when displayed in the Heroku app. This was done by editing the height of the picture by deleting lines of text. Luckily this didn't affect the original output of the guillotine. The only difference it being in smaller in scale with none of its main attractions missing.
 
+## Code Validation
 
+Using the [PEP8ci](https://pep8ci.herokuapp.com/) code validator for the python code I received no errors. I think the reason for this was mainly due to using the extension Error Lens to correct any invalid code when building the project.
+
+## Bugs
+
+I found several bugs when building my project.
+
+* On printing the guillotine text art it would split the pictures where there are \ the way I fixed this war placing a r before the quotation marks.
+
+* On printing the incorrect 
+
+## Unfixed Bugs
+
+* There are no known unfixed bugs.
 
 # Deployment
 
