@@ -411,7 +411,7 @@ def play_again(username):
     close the program
     """
     again = input(
-        "Would you like to play again" + username +
+        "Would you like to play again " + username +
         "? Type Y, play again or N to close program").upper()
     while again not in ("Y", "N"):
         print("PLease choose y or n", username)
