@@ -97,9 +97,9 @@ The input of the name will aloud the games to refer to the user throughout the g
 
 ![Examples of invalid inputs](images/invaild-input-name.png)
 
-The first error for invaild input is for whitesspace in the images
-The second error for the invaild input is for numbers in the images
-The third error for the invaild input is for special characters
+* The first error for invaild input is for whitesspace in the images
+* The second error for the invaild input is for numbers in the images
+* The third error for the invaild input is for special characters
 
 The input field only allows alphabetic characters
 
@@ -145,7 +145,65 @@ Once the the input for the difficulty of the game has been entered the game will
 
 ![Hard Game](images/hard-game.png)
 
+The start screen of the game will show the base of the platform with the executioner telling the user they have 7 lives, underneath the platform, it will show the incorrect letter the user has entered as it is the beginning of the game it will always show no incorrect letters, the number of lives being 7, the empty spaces for the game word and the text asking the user to enter as letter to guess.
 
+* Correct guess input for word
+
+![Correct Guess](images/input-correct.png)
+
+When the user has correctly guessed a letter in the word it will print the letter in the empty spaces where it would be. If the word has multiples of the letter guessed it will print all letters of the guessed letter counting a one guess.
+
+* Incorrect guess input for the word
+
+![Incorrect Guess](images/incorrect-letter.png)
+
+When the user has incorrectly guessed a letter that is not in the word it will print the incorrect letter in the area for incorrect letters. It will also print a part of the guillotine.
+
+* Invalid inputs to guess input
+
+![Invalis inputs](images/invalid-input-guess.png)
+
+* The first invalid error is for the input of a non letter to the terminal
+* The second invalid error is for the input of two letter in the terminal
+* The third invalid error is for a repeat guess for a letter that has already been inputted to the terminal
+
+An valid input must be a single alpabetical letter that has not already been used.
+
+* Guillotine
+
+As above in the incorrect explanation, the guillotine will print each part when an incorrect guess has been made. This will demostrate to the user that they are losing lives and are on the verge of losing their head.
+
+* The guillotine at the start of the game with 7 lives 
+
+![7 lives](images/7-lives.png)
+
+* The guillotine with 6 lives
+
+![6 lives](images/6-lives.png)
+
+* The guillotine with 5 lives
+
+![5 lives](images/5-lives.png)
+
+* The guillotine with 4 lives
+
+![4 lives](images/4-lives.png)
+
+* The guillotine with 3 lives
+
+![3 lives](images/3-lives.png)
+
+* The guillotine with 2 lives
+
+![2 lives](images/2-lives.png)
+
+* The guillotine with 1 lives
+
+![1 lives](images/1-lives.png)
+
+* Game Over Guillotine 
+
+![Game Over](images/game-over.png)
 
 ## Features to be added in the future
 
