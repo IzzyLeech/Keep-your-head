@@ -419,7 +419,7 @@ def play_again(username):
             "Would you like to play again " + username +
             "? Type Y to play again or N to close program")
 
-    if again == "y":
+    if again == "Y":
         print("Let's go")
         game()
     else:
