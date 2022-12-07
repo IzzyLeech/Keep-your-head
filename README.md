@@ -5,6 +5,33 @@
 # Goal for  this Project
 Keep your head will be a hang man style game that will have a spin instead of the typical style of gallows, which will be replaced with a guillotine that will represent the player being executed if they fail to guess the correct word.
 
+# Table of Contents
+* [UX](#ux "UX")
+    * [User Goals](#user-goals "User Goals")
+    * [User Stories](#user-stories "User Stories")
+    * [Site Owners Goals](#site-owners-goals)
+    * [User Requirements and Expectations](#user-requirements-and-expectations)
+         * [Requirements](#requirements)
+         * [Expectations](#expectations)
+    * [How to Play](#how-to-play)
+    * [Design Choices](#design-choices)
+    * [Images](#Images)
+    * [Structure](#structure)
+* [Features](#features)
+        * [Existing Features](#existing-features)
+        * [Features to be added in the future](#Features to be added in the future)
+* [Technologies used](#technologies-used)
+        * [Languages](#languages)
+        * [Modules](#modules)
+        * [Tools](#tools)
+* [Testing](#testing)
+        * [Testing on app](#testing-on-app)
+        * [Code Validation](#code-validation)
+        * [Bugs](#bugs)
+        * [Unfixed Bugs](#unfixed-bugs)
+    * [Deployment](#deployment)
+    * [Credits](#credits)
+
 # UX
 
 ## User Goals
@@ -242,6 +269,10 @@ Once the game has ended the user will be asked if they would like to play again 
 
 ## Features to be added in the future
 
+* Add the name of the user in the platform of the guillotine
+* Add more words to the words.py file
+* Add multiplayer option
+
 # Technologies Used
 
 ## Languages
@@ -268,9 +299,15 @@ Once the game has ended the user will be asked if they would like to play again 
 
 # Testing
 
+## Testing on app
+
 From testing the game throughout the build process there were many changes that were made to the final outcome of the game. The major change that went through different methods of function was how to game pulled the words for the game. The original method that I used at the beginning was I installed the NLTK and downloaded the word library. I quickly change this method mainly because every time I would open up my GitPod workspace the library was not still installed so I would have to repeat the process of installing the library. Next, I decided to create a variable that held a list of words that were connected to the French revolution to connect to the guillotine theme. I then was going to create a function that was going to determine the length of the word and then return the word if it was equal to the input of the difficulty. I had trouble building this function and was given the advice to use the Random Word API generator. When I got around to building the function that requests the API's URL, the app was down due to Heroku's change in its policy that recently happened. With this change, I decided to create three different variables from the list variable that I already created and made three lists based on the difficulty of the words so It could be called upon by the input of the difficulty. With this made, I was able to get my words for my game. I was then informed within a week of the due date for my project that the API was active again so I decided to proceed with the API root but keep the three list variables as a backup by creating a function that checks if the source code is equal to 503 it will use the get difficulty words from the words.py file.
 
 Another change that was made from testing was I had to change the sizing of the guillotine pictures due to the top of the guillotine being cut off when displayed in the Heroku app. This was done by editing the height of the picture by deleting lines of text. Luckily this didn't affect the original output of the guillotine. The only difference it being in smaller in scale with none of its main attractions missing.
+
+As I continued the testing of the game, I felt that there weren't enough lives for the user to have when on hard difficulty. To fix this  I added 1 more picture to the guillotine list so the number of lives could be increased to 7. This would have the player be able to have given extra lives on lower difficulty making it easier for those difficulties and also making the hard difficulty not extremely hard and impossible to win.
+
+
 
 ## Code Validation
 
@@ -282,7 +319,13 @@ I found several bugs when building my project.
 
 * On printing the guillotine text art it would split the pictures where there are \ the way I fixed this war placing a r before the quotation marks.
 
-* On printing the incorrect 
+* On printing the incorrect letters in the area for incorrect letters it would print vertical on top of each other, to fixes this I added end='' so if would print left to right in a row
+
+* When playing the game if the player had 2 lives left it would print the game over the guillotine picture and then on the next input of a letter it would repeat the picture without informing the player they had lost. If the next guess was a correct letter it would print the letter. If it was an incorrect letter it would crash the game. This was happening because it was counting the first guillotine as an incorrect letter/Life. To fix this, I put a -1 on the length of the guillotine pictures to the length of incorrect letters, so it wouldn't count as the first picture.
+
+* When I added an extra picture to the guillotine list I didn't count the picture due to I forgetting to put a comma to seperate the picture. This would make the game end when the player still had one life left.
+
+* When checking if the input was valid for the difficulty. If the user enters an invalid input it would repeat the error message in a loop. This was due to the while loop nothing having another value to reference from which was fixed by placing the input variable in the while loop. 
 
 ## Unfixed Bugs
 
@@ -290,9 +333,24 @@ I found several bugs when building my project.
 
 # Deployment
 
-The site was deployed via Heroku. Here is the link 
+The site was deployed via Heroku. Here is the link [Keep Your Head](https://keep-your-head.herokuapp.com/ "link")
 
 The project repository was created using the *Code-Institute-Org/python-essentials-template* on GitHub
+
+### Create a GitHub Repo and GitPod
+
+* Vist [GitHub](https://github.com/ "GitHub")
+* Sign into GitHub account
+* On dashboard, select **Repositories** and then **New**
+* Select Code-Institute-Ord/python-essentials-template
+* Enter Repository Name in text box 
+* Add description in text box
+* Select Public
+* Select **Create repository**
+* Wait for repository to generate
+* Select **GitPod"" on repo dashboard
+* Wait for Gitpod workspace to be built
+* Once GitPod workspace is built make your initial commit
 
 ### Deployment via Heroku
 
