@@ -373,3 +373,8 @@ The project repository was created using the *Code-Institute-Org/python-essentia
 * In the Automatic deploys section, click **Enable Automatic Deploys**. This updates every time GitHub code is pushed
 * To complete the process click on the **Deploy Brach** button in the Manual deploy section, this will take a few seconds to complete while Heroku builds the app
 * A message will appear informing you that the app was successfully deployed and a **View** button will bring you to the live site
+
+# Credits 
+
+* Scott from CI Tutor support
+* [Shaun Halverson](https://www.youtube.com/watch?v=pFvSb7cb_Us&t=795s&ab_channel=ShaunHalverson)
