@@ -354,7 +354,7 @@ def game():
             incorrect_letters.append(guess)
             if len(incorrect_letters) == len(guillotine) - 1:
                 build_guillotine(incorrect_letters, correct_letters, game_word)
-                print("You lose your head ", username)
+                print("You lose your head", username)
                 print("The word was", game_word)
                 play_again(username)
                 break
