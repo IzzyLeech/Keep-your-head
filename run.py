@@ -423,7 +423,7 @@ def play_again(username):
         print("Let's go")
         game()
     else:
-        print("No problem, Thanks for Playing ", username)
+        print("No problem, Thanks for Playing", username)
         sys.exit()
 
 
