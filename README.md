@@ -19,7 +19,7 @@ Keep your head will be a hang man style game that will have a spin instead of th
     * [Structure](#structure)
 * [Features](#features)
     * [Existing Features](#existing-features)
-    * [Features to be added in the future](#Features to be added in the future)
+    * [Features to be added in the future](#Features-to-be-added-in-the-future)
 * [Technologies used](#technologies-used)
     * [Languages](#languages)
     * [Modules](#modules)
