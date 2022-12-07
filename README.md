@@ -73,6 +73,82 @@ Flowchart for the logic to play the game.
 
 ![Play the game logic](images/game-logic.png)
 
+# Features
+
+## Existing Features
+
+Once the python3 run.py command has been entered into the terminal the first feature that will be shown is the text art for the logo of the game and input for the user to enter their name into.
+
+* Game logo
+
+![Game Logo](images/game-logo.png)
+
+* Input for name
+
+![Input for Name](images/enter-name.png)
+
+The input of the name will aloud the games to refer to the user throughout the game.
+
+* Example of name in input
+
+![Example of Name in input](images/example%20of%20name%20in%20input.png)
+
+* Examples of invalid inputs
+
+![Examples of invalid inputs](images/invaild-input-name.png)
+
+The first error for invaild input is for whitesspace in the images
+The second error for the invaild input is for numbers in the images
+The third error for the invaild input is for special characters
+
+The input field only allows alphabetic characters
+
+Once the user has entered their name in the input. The game will give a brief tutorial of the game and then ask the user to enter a letter that is based on the difficulty they wish to play.
+
+* Tutorial for game
+
+![Tutorial for game](images/info-on-game.png)
+
+The inforamtion on how to play the game is to the point and brief, so the user can get what they need to play the game as quickly as possible.
+
+* Different inputs that are required to choose difficulty
+
+![Easy Difficulty](images/e-difficulty.png)
+
+The E input will choose the easy difficulty that will generate four letter words from the api or up to 5 letter words from the words.py file.
+
+![Medium Difficulty](images/m-difficulty.png)
+
+The M input will choose the medium difficulty that will generate 6 letter words from the api or words between the length of 6 or 7 letters from the words.py file.
+
+![Hard Difficulty](images/h-difficulty.png)
+
+The H input will choose the hard difficulty that will generate 8 letter words from the api or words above 8 letters from the words.py file.
+
+* Invalid input for difficulty
+
+![Invaild input for difficulty](images/invalid-input-difficulty.png)
+
+If a wrong input is entered it will repeat the the message asking for the difficulty
+
+Once the the input for the difficulty of the game has been entered the game will begin. Based on the difficulty the user picked the only difference the user will see is the length of the word. Al other information will stay the same.
+
+* Start of easy game
+
+![Easy Game](images/easy-game.png)
+
+* Start of medium game
+
+![Medium Game](images/medium-game.png)
+
+* Start of hard game
+
+![Hard Game](images/hard-game.png)
+
+
+
+## Features to be added in the future
+
 # Technologies Used
 
 ## Languages
