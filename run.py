@@ -275,7 +275,6 @@ def get_difficulty_word_api(username):
         words = format_word(get_easy_words())
         game_word = random.choice(words)
 
-    print(game_word)
     return game_word.upper()
 
 
