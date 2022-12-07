@@ -416,14 +416,14 @@ def play_again(username):
     while again not in ("Y", "N"):
         print("PLease choose y or n", username)
         again = input(
-            "Would you like to play again" + username +
+            "Would you like to play again " + username +
             "? Type Y to play again or N to close program")
 
     if again == "y":
         print("Let's go")
         game()
     else:
-        print("No problem, Thanks for Playing")
+        print("No problem, Thanks for Playing ", username)
         sys.exit()
 
 
@@ -435,7 +435,7 @@ def main():
 
 
 print(r"""
-█▄▀ █▀▀ █▀▀ █▀█   █▄█ █▀█ █░█ █▀█   █░█ █▀▀ ▄▀█ █▀▄
-█░█ ██▄ ██▄ █▀▀   ░█░ █▄█ █▄█ █▀▄   █▀█ ██▄ █▀█ █▄▀
+        █▄▀ █▀▀ █▀▀ █▀█   █▄█ █▀█ █░█ █▀█   █░█ █▀▀ ▄▀█ █▀▄
+        █░█ ██▄ ██▄ █▀▀   ░█░ █▄█ █▄█ █▀▄   █▀█ ██▄ █▀█ █▄▀
 """)
 main()
