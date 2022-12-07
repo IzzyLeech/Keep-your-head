@@ -1,5 +1,7 @@
 # Keep your head
 
+![Game Logo](images/game-logo.png)
+
 # Goal for  this Project
 Keep your head will be a hang man style game that will have a spin instead of the typical style of gallows, which will be replaced with a guillotine that will represent the player being executed if they fail to guess the correct word.
 
@@ -157,7 +159,11 @@ When the user has correctly guessed a letter in the word it will print the lette
 
 ![Incorrect Guess](images/incorrect-letter.png)
 
-When the user has incorrectly guessed a letter that is not in the word it will print the incorrect letter in the area for incorrect letters. It will also print a part of the guillotine.
+When the user has incorrectly guessed a letter that is not in the word it will print the incorrect letter in the area for incorrect letters. It will also print a part of the guillotine and decrease the lives counter.
+
+* Decrease lives counter
+
+![decrease lives](images/decrease-lives.png)
 
 * Invalid inputs to guess input
 
@@ -204,6 +210,35 @@ As above in the incorrect explanation, the guillotine will print each part when 
 * Game Over Guillotine 
 
 ![Game Over](images/game-over.png)
+
+As the user loses lives the guillotine will gradually build. When the player has lost 4 lives the guillotine will be in its final form. With 5 lives lost the user will be placed in the guillotine. At 6 lives lost the executioner will raise his arm to pull on the draw rope. When the user loses all his lives the blade will be placed in the guillotine and x's on the user's eyes.
+
+On losing the game the user will be shown a message saying they have lost their head and show the game word.
+
+* Losing Message
+
+![lose message](images/lose-message.png)
+
+If the user correctly guessed the letter's of the word it will tell the user they have won and show the game word.
+
+* Winning Message
+
+![win message](images/win-message.png)
+
+Once the game has ended the user will be asked if they would like to play again or close the program. To play agin the user must enter Y and to cloce the program the user must enter N. If the user choose Y the game will begin again where it ask the user to enter their name. If the user choose N the game will thank the user for playing and close the program
+
+* Play again message
+
+![play again](images/play-again-message.png)
+
+* Yes to play again
+
+![yes to play](images/play-again-yes.png)
+
+* No to play again
+
+![no to play](images/play-again-no.png)
+
 
 ## Features to be added in the future
 
